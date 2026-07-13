@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Hilson He - Student Profile CV</title>
 <style>
 @page { size: A4; margin: 0; }
@@ -10,409 +11,194 @@
   --green:#15935d; --green2:#ecfdf5; --orange:#d97706; --orange2:#fff7ed;
   --purple:#7c3aed; --purple2:#f5f3ff; --pink:#db2777; --pink2:#fdf2f8;
 }
-
-html, body {
-  margin: 0;
-  padding: 0;
-  background: #f3f4f6;
-}
-
-.page {
-  width: 210mm;
-  height: 297mm;
-  min-height: 297mm;
-  max-height: 297mm;
-  margin: 0 auto;
-  padding: 5mm;
-  background: white;
-  overflow: hidden;
-  box-sizing: border-box;
-}
-
-@media print {
-  html, body {
-    width: 210mm;
-    height: 297mm;
-    background: white;
-  }
-
-  .page {
-    width: 210mm;
-    height: 297mm;
-    min-height: 297mm;
-    max-height: 297mm;
-    margin: 0;
-    padding: 5mm;
-    box-shadow: none;
-    overflow: hidden;
-  }
-}
-
 *{box-sizing:border-box}
-body{margin:0; font-family:Arial, Helvetica, sans-serif; color:var(--ink); font-size:10.2pt; line-height:1.32; background:white;}
-a{color:var(--blue); text-decoration:none; font-weight:700;}
-.page{min-height:274mm;}
-.header{display:grid; grid-template-columns:1fr 30mm; gap:12px; align-items:start; padding:12px 13px; border:1.6px solid #cfe0fa; border-radius:18px; background:linear-gradient(135deg,#f8fbff,#eef6ff);}
-.icons{font-size:13pt; letter-spacing:2px; margin-bottom:2px;}
-h1{font-size:29pt; line-height:1; margin:0; color:#102a56; letter-spacing:.2px;}
-.subtitle{font-size:12pt; font-weight:800; color:var(--blue); margin-top:3px;}
-.meta{color:var(--muted); margin-top:6px; font-size:9.2pt;}
-/* Make the NLCS logo more visible in the header */
-.school{
-  display:flex;
-  align-items:center;
-  gap:0px;
-  width:83%;
-  padding:0px 5px;
-  background:white;
-  border:1.4px solid #bfd3f3;
-  border-radius:10px;
-  font-weight:900;
-  color:#233b63;
-  box-shadow:0 2px 6px rgba(37,99,235,0.08);
-  overflow:hidden;
-  white-space:nowrap;
+html,body{margin:0;padding:0;background:#edf1f6}
+body{font-family:Arial,Helvetica,sans-serif;color:var(--ink);font-size:9.2pt;line-height:1.28}
+a{color:var(--blue);text-decoration:none;font-weight:700}
+.page{
+  position:relative;
+  width:210mm;
+  min-height:297mm;
+  margin:0 auto 8mm;
+  padding:7mm 8mm 10mm;
+  background:#fff;
+  break-after:page;
+  page-break-after:always;
 }
-.school img{
-  height:60px;
-  width:100px;
-  max-width:100px;
-  object-fit:contain;
-  flex:none;
+.page:last-child{break-after:auto;page-break-after:auto}
+@media print{
+  html,body{background:#fff}
+  .page{margin:0;min-height:297mm;box-shadow:none}
 }
-.school span{
-  font-size:9pt;
-  line-height:1.15;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-.logo-text{font-weight:900; color:#12315f;}
-/* Student portrait box: keeps the photo from becoming too large */
-.photo{
-  width:30mm;
-  height:30mm;
-  border:1.5px solid #aec5e9;
-  border-radius:15px;
-  overflow:hidden;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:white;
-  padding:0;
-}
-.photo img{
-  width:100%;
-  height:100%;
-  max-width:100%;
-  max-height:100%;
-  object-fit:cover;
-  object-position:center;
-  display:block;
-}
-.personal{margin-top:9px; border:1px solid #e1eaf7; border-left:7px solid var(--orange); border-radius:16px; padding:9px 12px;}
-.personal-title{font-weight:900; color:#8a4b05; font-size:11.5pt; margin-bottom:4px;}
-.grid{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:10px;}
-.section{border:1px solid var(--line); border-radius:18px; padding:10px 11px; break-inside:avoid;}
-.sec-head{display:flex; align-items:center; gap:8px; margin-bottom:8px;}
-.icon{width:30px; height:30px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:16px; flex:none;}
-.i-acad{background:var(--blue2)} .i-art{background:var(--purple2)} .i-sport{background:var(--green2)} .i-char{background:var(--orange2)}
-.sec-title{font-size:10.4pt; font-weight:900; color:#12253f;}
-.tag{margin-left:auto; border-radius:999px; padding:3px 7px; font-size:7.8pt; font-weight:900;}
-.t-acad{background:var(--blue2); color:var(--blue)} .t-art{background:var(--purple2); color:var(--purple)} .t-sport{background:var(--green2); color:var(--green)} .t-char{background:var(--orange2); color:var(--orange)}
-.entry{padding-bottom:7px; margin-bottom:7px; border-bottom:1px dashed #e5edf8;}
-.entry:last-child{border-bottom:none; padding-bottom:0; margin-bottom:0;}
-.title{font-weight:900; font-size:9pt; color:#16273e;}
-/* Toggle descriptions by changing body class:
-   <body class="show-desc"> shows all descriptions
-   <body class="hide-desc"> hides regular descriptions for a compact one-page CV */
-body.hide-desc .entry > .desc{display:none;}
-body.hide-desc .entry > .desc.keep-desc{display:block;}
-body.show-desc .entry > .desc{display:block;}
-
-body.hide-desc .entry{padding-bottom:5px; margin-bottom:5px;}
-body.hide-desc .evidence{font-size:8.2pt; margin-top:2px;}
-.desc{color:#4b5a70; margin-top:2px;}
-.evidence{font-size:8.6pt; color:#6a7a8e; margin-top:3px;}
-.placeholder{color:#a05208; font-weight:900;}
-ul{margin:0; padding-left:18px;} li{margin:5px 0;}
-
-.stat-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:6px;
-  margin-top:5px;
-}
-.stat-grid-2{
-  grid-template-columns:repeat(2,1fr);
-}
-
-.stat-box{
-  background:#f8fbff;
-  border:1px solid #dbe8f7;
-  border-radius:10px;
-  padding:6px 5px;
-  text-align:center;
-}
-.stat-box em{
-  display:block;
-  font-style:normal;
-  font-size:6.8pt;
-  color:#7a8798;
-  margin-bottom:3px;
-  line-height:1.1;
-}
-
-.stat-box b{
-  display:block;
-  font-size:10pt;
-  color:#2563eb;
-  line-height:1.1;
-}
-
-.stat-box span{
-  display:block;
-  font-size:7.1pt;
-  color:#5e6d82;
-  line-height:1.18;
-  margin-top:3px;
-}
-.subsection-title{
-  font-weight:900;
-  color:#7a860b;
-  background:#f2f5dc;
-  border-radius:999px;
-  padding:3px 8px;
-  display:inline-block;
-  font-size:8.6pt;
-  margin:3px 0 6px;
-}
-
-.art-mini{display:grid; grid-template-columns:repeat(3,1fr); gap:7px; margin-top:7px;}
-
-.artbox{
-  height:20mm;
-  border:1.4px dashed #d6c8ff;
-  border-radius:11px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  color:#8275b2;
-  background:#fbf8ff;
-  font-size:8.1pt;
-  padding:3px;
-  overflow:hidden;
-}
-
-.artsection-title{
-  font-weight:900;
-  color:#6d460d;
-  background:#dac496;
-  border-radius:999px;
-  padding:3px 8px;
-  display:inline-block;
-  font-size:8.6pt;
-  margin:3px 0 6px;
-}
-
-.artbox img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  object-position:center;
-  display:block;
-  border-radius:8px;
-}
-
-.qualities-section{
-  font-size:9pt;
-}
-
-.qualities-section li{
-  margin:3px 0;
-  line-height:1.22;
-}
-
-.basket-media{display:grid; grid-template-columns:22mm 1fr; gap:8px; align-items:center; margin-top:7px; padding-top:7px; border-top:1px dashed #e5edf8;}
-.basket-media img{width:22mm; height:16mm; object-fit:cover; border:1px solid #d8e5f6; border-radius:10px; display:block;}
-.sport-subtitle{
-  font-weight:900;
-  color:#961e56;
-  background:#f8d1de;
-  border-radius:999px;
-  padding:3px 8px;
-  display:inline-block;
-  font-size:8.6pt;
-  margin:3px 0 6px;
-}
-.media-title{font-weight:900; color:#16273e; font-size:9pt;}
+.header{display:grid;grid-template-columns:1fr 28mm;gap:11px;align-items:start;padding:10px 12px;border:1.5px solid #cfe0fa;border-radius:16px;background:linear-gradient(135deg,#f8fbff,#eef6ff);break-inside:avoid;page-break-inside:avoid}
+h1{font-size:25pt;line-height:1;margin:0;color:#102a56;letter-spacing:.2px}
+.subtitle{font-size:11pt;font-weight:800;color:var(--blue);margin-top:3px}
+.meta{color:var(--muted);margin-top:5px;font-size:8.5pt}
+.school{display:flex;align-items:center;width:max-content;max-width:100%;margin-top:5px;padding:2px 7px 2px 3px;background:#fff;border:1.2px solid #bfd3f3;border-radius:9px;font-weight:800;color:#233b63;overflow:hidden}
+.school img{height:12mm;width:24mm;object-fit:contain;flex:none}
+.school span{font-size:8.1pt;white-space:nowrap}
+.photo{width:28mm;height:28mm;border:1.4px solid #aec5e9;border-radius:14px;overflow:hidden;background:#fff}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.personal{margin-top:7px;border:1px solid #e1eaf7;border-left:6px solid var(--orange);border-radius:14px;padding:7px 10px;break-inside:avoid;page-break-inside:avoid}
+.personal-title{font-weight:900;color:#8a4b05;font-size:10.5pt;margin-bottom:3px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;align-items:start}
+.section{border:1px solid var(--line);border-radius:15px;padding:8px 9px;break-inside:avoid;page-break-inside:avoid}
+.sec-head{display:flex;align-items:center;gap:7px;margin-bottom:6px}
+.icon{width:25px;height:25px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:9pt;font-weight:900;flex:none}
+.i-acad{background:var(--blue2);color:var(--blue)} .i-art{background:var(--purple2);color:var(--purple)} .i-sport{background:var(--green2);color:var(--green)} .i-char{background:var(--orange2);color:var(--orange)}
+.sec-title{font-size:10pt;font-weight:900;color:#12253f}
+.tag{margin-left:auto;border-radius:999px;padding:2px 6px;font-size:7.2pt;font-weight:900}
+.t-acad{background:var(--blue2);color:var(--blue)} .t-art{background:var(--purple2);color:var(--purple)} .t-sport{background:var(--green2);color:var(--green)} .t-char{background:var(--orange2);color:var(--orange)}
+.subsection-title,.artsection-title,.sport-subtitle{font-weight:900;border-radius:999px;padding:2px 7px;display:inline-block;font-size:8pt;margin:2px 0 5px}
+.subsection-title{color:#69720a;background:#f2f5dc}.artsection-title{color:#6d460d;background:#ead9b7}.sport-subtitle{color:#961e56;background:#f8d1de}
+.entry{padding-bottom:5px;margin-bottom:5px;border-bottom:1px dashed #e5edf8;break-inside:avoid;page-break-inside:avoid}
+.entry:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0}
+.title{font-weight:900;font-size:8.4pt;color:#16273e}
+.desc{color:#4b5a70;margin-top:2px;font-size:8pt}
+.evidence{font-size:7.5pt;color:#6a7a8e;margin-top:2px}
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-top:3px}
+.stat-box{background:#f8fbff;border:1px solid #dbe8f7;border-radius:9px;padding:6px 5px;text-align:center}
+.stat-box em{display:block;font-style:normal;font-size:6.5pt;color:#7a8798;line-height:1.12;margin-bottom:2px}
+.stat-box b{display:block;font-size:10pt;color:#2563eb;line-height:1.05}
+.stat-box span{display:block;font-size:6.9pt;color:#5e6d82;line-height:1.18;margin-top:3px}
+.rating-note{margin-top:6px;padding:6px 7px;border-radius:9px;background:#f7fbff;border-left:4px solid var(--blue);font-size:7.7pt;color:#43546d}
+.subject-chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.subject-chips span{padding:2px 6px;border-radius:999px;background:#eef6ff;color:#2458aa;font-size:6.8pt;font-weight:800;border:1px solid #d6e7fb}
+.comment-section{margin-top:8px;border:1px solid var(--line);border-radius:15px;padding:8px 9px;break-inside:avoid;page-break-inside:avoid}
+.comment-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:5px}
+.comment-card{background:#fbfcfe;border:1px solid #e3ebf5;border-radius:11px;padding:7px 8px;break-inside:avoid;page-break-inside:avoid}
+.comment-label{display:flex;justify-content:space-between;gap:8px;font-size:7.5pt;font-weight:900;color:#28538b;margin-bottom:4px}
+.comment-card blockquote{margin:0;font-size:7.15pt;line-height:1.27;color:#39495f}
+.comment-card .evidence{margin-top:5px}
+.page2-header{display:flex;align-items:center;justify-content:space-between;padding:7px 10px;border:1.4px solid #cfe0fa;border-radius:14px;background:linear-gradient(135deg,#f8fbff,#eef6ff);break-inside:avoid;page-break-inside:avoid}
+.page2-title{font-size:17pt;font-weight:900;color:#102a56}.page2-sub{font-size:8pt;color:var(--muted);margin-top:2px}.page-mark{font-size:8pt;font-weight:900;color:var(--blue)}
+.page2-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:8px;margin-top:8px;align-items:start}
+.art-mini{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:6px}
+.artbox{height:22mm;border:1.3px dashed #d6c8ff;border-radius:10px;background:#fbf8ff;overflow:hidden;padding:2px}
+.artbox img{width:100%;height:100%;object-fit:contain;display:block;border-radius:7px}
+.basket-media{display:grid;grid-template-columns:22mm 1fr;gap:7px;align-items:center;margin-top:6px;padding-top:6px;border-top:1px dashed #e5edf8;break-inside:avoid;page-break-inside:avoid}
+.basket-media img{width:22mm;height:16mm;object-fit:cover;border:1px solid #d8e5f6;border-radius:9px;display:block}.media-title{font-weight:900;color:#16273e;font-size:8.4pt}
+.qualities-section{margin-top:8px;font-size:8pt}.qualities-section ul{margin:0;padding-left:16px}.qualities-section li{margin:3px 0;line-height:1.23}
+.footer{position:absolute;left:8mm;right:8mm;bottom:4mm;display:flex;justify-content:space-between;border-top:1px solid #edf1f6;padding-top:2mm;color:#8a96a7;font-size:6.8pt}
+.small-note{font-size:7.1pt;color:#6d7b8e;margin-top:5px}
 </style>
 </head>
-<body class="hide-desc">
-<div class="page">
+<body>
+
+<section class="page">
   <div class="header">
     <div>
       <h1>Hilson HE Zongyi</h1>
       <div class="subtitle">Student Profile for Secondary School Application</div>
-      <div class="meta">Born: 10 August 2016 · Interests: Mathematics, drawing, basketball</div>
+      <div class="meta">Born: 10 August 2016 | Interests: Mathematics, drawing, basketball</div>
       <div class="school"><img src="nlcssg.png" alt="NLCS Singapore logo" /><span>Current school: North London Collegiate School Singapore</span></div>
     </div>
-    <div class="photo"><img src="photos/zongyi-ID-2021-2.jpg" alt="hilson" /></div>
+    <div class="photo"><img src="photos/zongyi-ID-2021-2.jpg" alt="Hilson" /></div>
   </div>
 
   <div class="personal">
-    <div class="personal-title">🌟 Personal Statement</div>
+    <div class="personal-title">Personal Statement</div>
     <div>I love trying new things, especially when I first started learning math, drawing, and basketball. Now they have become my everyday hobbies, and I really enjoy practising and improving in them. Basketball teaches me teamwork, drawing encourages me to use my imagination, and math helps me think carefully and solve problems. I hope to continue becoming a responsible student who can learn from feedback, keep trying my best, and contribute positively to my school community.</div>
   </div>
 
   <div class="grid">
     <div class="section">
-  <div class="sec-head">
-    <div class="icon i-acad">📘</div>
-    <div class="sec-title">Academic Achievements</div>
-    <div class="tag t-acad">Curiosity</div>
-  </div>
+      <div class="sec-head"><div class="icon i-acad">A</div><div class="sec-title">Academic Achievements</div><div class="tag t-acad">Curiosity</div></div>
+      <div class="subsection-title">Mathematics Competitions</div>
+      <div class="entry"><div class="title">2026 - AMC 8 - Score 21/25, Top 10%</div><div class="desc">A strong result achieved while younger than the typical contest cohort.</div><div class="evidence">Evidence: <a href="https://raw.githubusercontent.com/ShengfengHe/Hilson-CV/main/certificates/AMC8.jpg" target="_blank">certificate</a></div></div>
+      <div class="entry"><div class="title">2026 - JMC - Gold Award</div><div class="desc">Gold with 95 points, demonstrating strong accuracy and problem-solving ability.</div><div class="evidence">Evidence: <a href="https://raw.githubusercontent.com/ShengfengHe/Hilson-CV/main/certificates/JMC-2026.jpg" target="_blank">certificate</a></div></div>
+      <div class="entry"><div class="title">2026 - SASMO - Silver Award</div><div class="desc">Silver Award in the Singapore and Asian Schools Math Olympiad.</div><div class="evidence">Evidence: <a href="https://raw.githubusercontent.com/ShengfengHe/Hilson-CV/main/certificates/" target="_blank">certificate</a></div></div>
+      <div class="entry"><div class="title">2025 - SASMO - Bronze Award</div><div class="desc">Bronze Award in the Singapore and Asian Schools Math Olympiad.</div><div class="evidence">Evidence: <a href="https://raw.githubusercontent.com/ShengfengHe/Hilson-CV/main/certificates/SASMO2025.jpg" target="_blank">certificate</a></div></div>
+      <div class="entry"><div class="title">2023 - Hope Cup Competition - Bronze Award</div><div class="desc">Early recognition for mathematical interest and problem-solving.</div><div class="evidence">Evidence: <a href="https://raw.githubusercontent.com/ShengfengHe/Hilson-CV/main/certificates/hope_cup_2023.jpg" target="_blank">certificate</a></div></div>
+    </div>
 
-  <div class="subsection-title">Mathematics Competitions</div>
-
-  <div class="entry">
-    <div class="title">2026 - AMC 8 - Score 21/25, Top 10%</div>
-    <div class="desc">Achieved a strong AMC 8 score while still younger than the typical contest cohort.</div>
-    <div class="evidence">Evidence: <a href="https://raw.githubusercontent.com/ShengfengHe/Hilson-CV/main/certificates/AMC8.jpg" target="_blank">certificate</a></div>
-  </div>
-
-  <div class="entry">
-    <div class="title">2026 - JMC - Gold Award</div>
-    <div class="desc">Achieved Gold with 95 points, demonstrating strong accuracy and problem-solving ability.</div>
-    <div class="evidence">Evidence: <a href="https://raw.githubusercontent.com/ShengfengHe/Hilson-CV/main/certificates/JMC-2026.jpg">certificate</a></div>
-  </div>
-
-  <div class="entry">
-    <div class="title">2026 - SASMO - Silver Award</div>
-    <div class="desc">Received a Silver Award in the Singapore and Asian Schools Math Olympiad.</div>
-    <div class="evidence">Evidence: <a href="https://raw.githubusercontent.com/ShengfengHe/Hilson-CV/main/certificates/">certificate</a></div>
-  </div>
-
-  <div class="entry">
-    <div class="title">2025 - SASMO - Bronze Award</div>
-    <div class="desc">Received a Bronze Award in the Singapore and Asian Schools Math Olympiad.</div>
-    <div class="evidence">Evidence: <a href="https://raw.githubusercontent.com/ShengfengHe/Hilson-CV/main/certificates/SASMO2025.jpg">certificate</a></div>
-  </div>
-
-  <div class="entry">
-    <div class="title">2023 - Hope Cup Competition - Bronze Award</div>
-    <div class="desc">Received a Hope Cup award, reflecting early interest and achievement in mathematical problem-solving.</div>
-    <div class="evidence">Evidence: <a href="https://raw.githubusercontent.com/ShengfengHe/Hilson-CV/main/certificates/hope_cup_2023.jpg">certificate</a></div>
-  </div>
-
-  <div class="subsection-title">School Learning Record</div>
-
-  <div class="entry">
-  <div class="desc keep-desc">
-    <div class="stat-grid stat-grid-2">
-      <div class="stat-box">
-        <em>Grade 4 · Term 2 · 2025–2026</em>
-        <b>6 subjects</b>
-        <span>with Exemplary attainment, including Mathematics, English, Topic, Drama, PE & Health, and Science</span>
+    <div class="section">
+      <div class="sec-head"><div class="icon i-acad">R</div><div class="sec-title">Grade 4 School Record</div><div class="tag t-acad">2025-2026</div></div>
+      <div class="stat-grid">
+        <div class="stat-box"><em>Term 2</em><b>6 / 10</b><span>subjects with Exemplary attainment</span></div>
+        <div class="stat-box"><em>Term 3</em><b>6 / 10</b><span>subjects with Exemplary attainment</span></div>
+        <div class="stat-box"><em>Full-year merit</em><b>Platinum</b><span>30 merits - highest merit award</span></div>
       </div>
-      <div class="stat-box">
-        <em>Teacher comment</em>
-        <b>Standout student</b>
-        <span>praised for intelligence, kindness, calmness, politeness, focus, and commitment to learning</span>
+      <div class="rating-note"><b>Exemplary (E)</b> is the strongest positive descriptor used on the NLCS report scale. It highlights performance that clearly stands out against the stated expectations.</div>
+      <div class="small-note"><b>Consistent Exemplary attainment in both reports:</b></div>
+      <div class="subject-chips"><span>Mathematics</span><span>Science</span><span>English</span><span>Topic</span><span>Drama</span><span>PE &amp; Health</span></div>
+      <div class="entry" style="margin-top:7px"><div class="title">Term 2 and Term 3 evidence</div><div class="evidence"><a href="reports/HE_Zongyi(160832018471)_2526_T2.pdf" target="_blank">Term 2 report</a> / <a href="reports/HE_Zongyi(160832018471)_2526_T3.pdf" target="_blank">Term 3 report</a> / <a href="certificates/2025-26_merits.jpg" target="_blank">Platinum merit certificate</a></div></div>
+    </div>
+  </div>
+
+  <div class="comment-section">
+    <div class="sec-head"><div class="icon i-acad">T</div><div class="sec-title">Original Class Teacher Comments</div><div class="tag t-acad">Mark Davies</div></div>
+    <div class="comment-grid">
+      <div class="comment-card">
+        <div class="comment-label"><span>Term 2</span><span>Conduct: Exemplary</span></div>
+        <blockquote>Zongyi continues to be a standout student, characterised by intelligence, kindness, calmness, and unwavering politeness. His dedication to learning this term has been impressive, and he approaches tasks with focus and care, consistently producing work of an excellent standard. Zongyi listens attentively in class, follows instructions carefully, and applies himself conscientiously across all curriculum areas. Zongyi has made pleasing progress in actively contributing to class discussions. He now shares his ideas more confidently, which has further enriched his learning and that of his peers. In English, Zongyi demonstrates a secure understanding of text types and their features. He has made clear progress in rereading and editing his work, incorporating ambitious descriptive vocabulary and genre-specific phrases. This growth was particularly evident in his character descriptions of the children in A Series of Unfortunate Events, where he effectively captured the personalities and traits of the characters. In Mathematics, Zongyi has continued to impress with his strong understanding of key concepts. His knowledge of the four operations, fractions, and percentages has developed further, and he has confidently applied strategies to solve increasingly complex problems. Beyond academics, Zongyi continues to demonstrate excellent commitment to enrichment activities and competitions. His enthusiasm, maturity, and willingness to engage in these opportunities highlight his positive attitude and strong character, as well as his creative and academic strengths. Zongyi's progress, responsibility, and positive approach to learning are commendable. Well done, Zongyi, on a successful second term, and I look forward to seeing him continue to flourish in Term 3.</blockquote>
+        <div class="evidence">Source: <a href="reports/HE_Zongyi(160832018471)_2526_T2.pdf" target="_blank">Term 2 report</a></div>
+      </div>
+      <div class="comment-card">
+        <div class="comment-label"><span>Term 3 / Full-year</span><span>Class Teacher Comment</span></div>
+        <blockquote>It has been an absolute pleasure to teach Zongyi this year. He is a very high-achieving student who consistently applies himself with care, determination and maturity in all that he does. Whatever the task, he always strives to produce his very best piece of work, and this admirable attitude is reflected in the excellent standard he so regularly achieves. He approaches learning with a strong sense of responsibility and quiet ambition, showing that he takes genuine pride in his efforts. Zongyi is thoughtful, conscientious and dependable, and he can always be relied upon to give his full attention and commitment to classroom expectations. Alongside his academic success, Zongyi is a kind and considerate member of the class community. He is helpful to others, a good friend to his peers and, quite simply, a genuinely nice person to have in the classroom. He treats those around him with respect and warmth, and his positive manner contributes greatly to the calm and supportive atmosphere of the class. It has also been lovely to see how much he has grown in confidence over time. He has shown a noticeably more outgoing personality this year, and this developing self-assurance has been a real pleasure to witness. Looking ahead, the next step for Zongyi is to continue pushing himself beyond the classroom and take chances in the wider life of the school. He would have been a wonderful candidate for the Grade 5 Academic Ambassador role, and it is hoped that he will feel encouraged to put himself forward for similar opportunities in future.</blockquote>
+        <div class="evidence">Source: <a href="reports/HE_Zongyi(160832018471)_2526_T3.pdf" target="_blank">Term 3 report</a></div>
       </div>
     </div>
   </div>
-</div>
-</div>
 
+  <div class="footer"><span>Hilson HE Zongyi - Student Profile</span><span>Page 1 of 2</span></div>
+</section>
+
+<section class="page">
+  <div class="page2-header">
+    <div><div class="page2-title">Activities, Creativity &amp; Character</div><div class="page2-sub">Selected evidence of artistic development, teamwork, initiative and personal growth</div></div>
+    <div class="page-mark">Hilson HE Zongyi</div>
+  </div>
+
+  <div class="page2-grid">
     <div class="section">
-      <div class="sec-head"><div class="icon i-art">🎨</div><div class="sec-title">Drawing & Visual Arts</div><div class="tag t-art">Creativity</div></div>
+      <div class="sec-head"><div class="icon i-art">V</div><div class="sec-title">Drawing &amp; Visual Arts</div><div class="tag t-art">Creativity</div></div>
       <div class="artsection-title">Drawing Awards</div>
-      <div class="entry">
-        <div class="title">International Art Award - Belt and Road Theme</div>
-        <div class="desc">Received recognition in an international drawing competition hosted in China and Russia. <span class="placeholder"></span></div>
-        <div class="evidence">Evidence: <a href="https://raw.githubusercontent.com/ShengfengHe/Hilson-CV/main/painting/beltroad2.jpg">certificate</a></div>
-      </div>
-      <div class="entry">
-        <div class="title">FOBISIA Earth Competition - Award</div>
-        <div class="desc">Received recognition in the FOBISIA Earth-themed art competition, showing creativity and environmental awareness through visual expression.</div>
-        <div class="evidence">Evidence: <a href="https://raw.githubusercontent.com/ShengfengHe/Hilson-CV/main/painting/FOBISIA_Earth_competition_painting.jpg"> painting</a> / <a href="https://raw.githubusercontent.com/ShengfengHe/Hilson-CV/main/painting/FOBISIA_Earth_competition.jpg"> certificate</a></div>
-      </div>
-      <div class="entry">
-        <div class="title">FOBISIA Hidden Worlds - Award</div>
-        <div class="desc">Received recognition in the FOBISIA Hidden Worlds art competition, demonstrating imagination, visual storytelling, and attention to detail.</div>
-        <div class="evidence">Evidence: <a href="https://raw.githubusercontent.com/ShengfengHe/Hilson-CV/main/painting/FOBISIA_Hidden_worlds_painting.jpg"> painting</a> / <a href="https://raw.githubusercontent.com/ShengfengHe/Hilson-CV/main/painting/FOBISIA_Hidden_worlds.jpg"> certificate</a></div>
-      </div>
+      <div class="entry"><div class="title">International Art Award - Belt and Road Theme</div><div class="desc">Recognition in an international drawing competition hosted in China and Russia.</div><div class="evidence">Evidence: <a href="https://raw.githubusercontent.com/ShengfengHe/Hilson-CV/main/painting/beltroad2.jpg" target="_blank">certificate</a></div></div>
+      <div class="entry"><div class="title">FOBISIA Earth Competition - Award</div><div class="desc">Recognition for creativity and environmental awareness through visual expression.</div><div class="evidence">Evidence: <a href="https://raw.githubusercontent.com/ShengfengHe/Hilson-CV/main/painting/FOBISIA_Earth_competition_painting.jpg" target="_blank">painting</a> / <a href="https://raw.githubusercontent.com/ShengfengHe/Hilson-CV/main/painting/FOBISIA_Earth_competition.jpg" target="_blank">certificate</a></div></div>
+      <div class="entry"><div class="title">FOBISIA Hidden Worlds - Award</div><div class="desc">Recognition for imagination, visual storytelling and attention to detail.</div><div class="evidence">Evidence: <a href="https://raw.githubusercontent.com/ShengfengHe/Hilson-CV/main/painting/FOBISIA_Hidden_worlds_painting.jpg" target="_blank">painting</a> / <a href="https://raw.githubusercontent.com/ShengfengHe/Hilson-CV/main/painting/FOBISIA_Hidden_worlds.jpg" target="_blank">certificate</a></div></div>
       <div class="artsection-title">Selected Artwork Examples</div>
-      <div class="entry"><div class="desc">Enjoys character design, imaginative scenes, and visual storytelling. Shows patience, attention to detail, and willingness to revise work.</div></div>
+      <div class="desc">Enjoys character design, imaginative scenes and visual storytelling. Shows patience, attention to detail and willingness to revise work.</div>
       <div class="art-mini">
-  <div class="artbox"><img src="painting/cartoon1.jpg" alt="artwork1" /></div>
-  <div class="artbox"><img src="painting/drawing1.jpg" alt="artwork2" /></div>
-  <div class="artbox"><img src="painting/naruto.jpg" alt="artwork3" /></div>
-    <div class="artbox"><img src="painting/painting2_zoom.jpg" alt="artwork4" /></div>
-  <div class="artbox"><img src="painting/painting1.jpg" alt="artwork5" /></div>
-  <div class="artbox"><img src="painting/painting5.jpg" alt="artwork6" /></div>
-</div>
-    </div>
-  </div>
-
-  <div class="grid">
-    <div class="section">
-      <div class="sec-head">
-  <div class="icon i-sport">🏀</div>
-  <div class="sec-title">Sports</div>
-  <div class="tag t-sport">Teamwork</div>
-</div>
-
-<div class="sport-subtitle">Basketball</div>
-
-<div class="entry">
-  <div class="title">SPBL 2025 Spring - U10 Division 3, Bronze</div>
-  <div class="desc">Team achievement in the Singapore Premier Basketball League (SPBL); Hilson played as part of the starting five.</div>
-</div>
-
-<div class="entry">
-  <div class="title">SPBL 2025 Fall - U10 Division 1B, 4th Place</div>
-  <div class="desc">Competed at a higher division level and contributed as a starting-five player.</div>
-</div>
-
-<div class="entry">
-  <div class="title">SPBL 2026 Spring - U10 Division 1, 4th Place</div>
-  <div class="desc">Continued competitive development in U10 Division 1; contributed as a starting-five player.</div>
-</div>
-
-<div class="sport-subtitle">Netball</div>
-
-<div class="entry">
-  <div class="title">ACSIS 2026 Spring - U10 Division 2, 1st Place</div>
-  <div class="desc">Represented the school in the Athletic Conference of Singapore International Schools (ACSIS) competition and contributed to the team’s 1st-place finish.</div>
-  <div class="evidence">Evidence: <a href="https://raw.githubusercontent.com/ShengfengHe/Hilson-CV/main/basketball/Netball_U10D2.jpg">certificate</a></div>
-</div>
-      <div class="basket-media">
-        <a href="basketball/basketball_photo.jpg"><img src="basketball/basketball_photo.jpg" alt="Hilson basketball photo" /></a>
-        <div>
-          <div class="media-title">Basketball media</div>
-          <div class="evidence"><a href="https://raw.githubusercontent.com/ShengfengHe/Hilson-CV/main/basketball/basketball_photo.jpg">Open photo</a> / <a href="https://youtu.be/q-MAn3C9RK0">Open video</a></div>
-        </div>
+        <div class="artbox"><img src="painting/cartoon1.jpg" alt="Artwork 1" /></div>
+        <div class="artbox"><img src="painting/drawing1.jpg" alt="Artwork 2" /></div>
+        <div class="artbox"><img src="painting/naruto.jpg" alt="Artwork 3" /></div>
+        <div class="artbox"><img src="painting/painting2_zoom.jpg" alt="Artwork 4" /></div>
+        <div class="artbox"><img src="painting/painting1.jpg" alt="Artwork 5" /></div>
+        <div class="artbox"><img src="painting/painting5.jpg" alt="Artwork 6" /></div>
       </div>
     </div>
 
-    <div class="section qualities-section">
-  <div class="sec-head">
-    <div class="icon i-char">🌱</div>
-    <div class="sec-title">Personal Qualities</div>
-    <div class="tag t-char">Growth</div>
+    <div>
+      <div class="section">
+        <div class="sec-head"><div class="icon i-sport">S</div><div class="sec-title">Sports</div><div class="tag t-sport">Teamwork</div></div>
+        <div class="sport-subtitle">Basketball</div>
+        <div class="entry"><div class="title">SPBL 2025 Spring - U10 Division 3, Bronze</div><div class="desc">Team achievement in the Singapore Premier Basketball League; Hilson played as part of the starting five.</div></div>
+        <div class="entry"><div class="title">SPBL 2025 Fall - U10 Division 1B, 4th Place</div><div class="desc">Competed at a higher division level and contributed as a starting-five player.</div></div>
+        <div class="entry"><div class="title">SPBL 2026 Spring - U10 Division 1, 4th Place</div><div class="desc">Continued competitive development in U10 Division 1 as a starting-five player.</div></div>
+        <div class="entry"><div class="title">Pesta Sukan 2026 - U10 3x3, 4th Place</div></div>
+        <div class="sport-subtitle">Netball</div>
+        <div class="entry"><div class="title">ACSIS 2026 Spring - U10 Division 2, 1st Place</div><div class="desc">Represented the school and contributed to the team's first-place finish.</div><div class="evidence">Evidence: <a href="https://raw.githubusercontent.com/ShengfengHe/Hilson-CV/main/basketball/Netball_U10D2.jpg" target="_blank">certificate</a></div></div>
+        <div class="basket-media"><a href="basketball/basketball_photo.jpg" target="_blank"><img src="basketball/basketball_photo.jpg" alt="Hilson basketball photo" /></a><div><div class="media-title">Basketball media</div><div class="evidence"><a href="https://raw.githubusercontent.com/ShengfengHe/Hilson-CV/main/basketball/basketball_photo.jpg" target="_blank">Open photo</a> / <a href="https://youtu.be/q-MAn3C9RK0" target="_blank">Open video</a></div></div></div>
+      </div>
+
+      <div class="section qualities-section">
+        <div class="sec-head"><div class="icon i-char">G</div><div class="sec-title">Personal Qualities</div><div class="tag t-char">Growth</div></div>
+        <ul>
+          <li><b>Curious learner:</b> enjoys mathematical challenges and thoughtful problem-solving.</li>
+          <li><b>Creative:</b> expresses ideas through drawing and visual imagination.</li>
+          <li><b>Team-oriented:</b> learns cooperation, communication and resilience through sport.</li>
+          <li><b>Responsible:</b> approaches learning with care, maturity and commitment.</li>
+          <li><b>Reflective:</b> responds well to encouragement and feedback with a desire to improve.</li>
+          <li><b>Kind and dependable:</b> contributes positively to a calm and supportive class community.</li>
+        </ul>
+      </div>
+    </div>
   </div>
-  <ul>
-    <li><b>Curious learner:</b> enjoys mathematical challenges and thoughtful problem-solving.</li>
-    <li><b>Creative:</b> expresses ideas through drawing and visual imagination.</li>
-    <li><b>Team-oriented:</b> learns cooperation, communication, and resilience through basketball.</li>
-    <li><b>Responsible:</b> developing independent reading and school-work habits.</li>
-    <li><b>Reflective:</b> responds well to encouragement and feedback with a desire to improve.</li>
-  </ul>
-</div>
-  </div>
-</div>
+
+  <div class="footer"><span>Hilson HE Zongyi - Student Profile</span><span>Page 2 of 2</span></div>
+</section>
+
 </body>
 </html>
